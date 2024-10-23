@@ -1,19 +1,22 @@
 <section class="form-section">
     <div class="text">
-        <h3>Fique por dentro de Tendências</h3>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet accusantium atque sunt dolorem, 
-        veniam nisi maiores reiciendis vitae ipsa consectetur molestiae, 
-        suscipit, magni aliquid debitis voluptates similique aspernatur dolorum consequuntur!
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam, quisquam, 
-        culpa optio voluptatum dolorum asperiores fugiat temporibus voluptatibus laudantium dolorem harum illum deserunt, 
-        iure est laborum rerum tempora suscipit beatae.
-        </p>
+        <h3>
+            Fique por dentro de tendências
+        </h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue. Vestibulum auctor ornare leo, non suscipit magna interdum eu. Curabitur pellentesque nibh nibh, at maximus ante fermentum sit amet. Pellentesque commodo lacus at sodales sodales. Quisque sagittis orci ut diam condimentum, vel euismod erat placerat. In iaculis arcu eros, eget temp</p>
     </div>
-    <form>
-    <label>Nome</label>
-    <input id="name"/>
-    <label>Email</label>
-    <input id="email"/>
-    <app-btn-primary btn-text="se inscreva" variant="secondary"></app-btn-primary>
+    <form [formGroup]="newsletterForm">
+        <label for="name">Name</label>
+        <input id="name" formControlName="name"/>
+        <label for="email">Email</label>
+        <input id="email" formControlName="email"/>
+        <app-btn-primary
+            btn-text="se inscreva" 
+            variant="secondary"
+            (submit)="onSubmit()"
+            [disabled]="!newsletterForm.valid"
+            [loading]="loading()"
+        >
+        </app-btn-primary>
     </form>
 </section>
